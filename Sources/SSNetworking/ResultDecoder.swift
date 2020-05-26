@@ -26,7 +26,7 @@ public extension ResultDecoder {
     }
 }
 
-extension ResultDecoder where ResultType: Decodable {
+public extension ResultDecoder where ResultType: Decodable {
     var transform: (Data) throws -> ResultType {
         get {
             return { data in
