@@ -8,9 +8,9 @@
 
 import Foundation
 
-typealias DataResult = Result<Data, NetworkError>
+public typealias DataResult = Result<Data, NetworkError>
 
-extension NetworkError {
+public extension NetworkError {
     
     init?(error: Error?, response: URLResponse?, data: Data? = Data()) {
         if let error = error {
@@ -32,7 +32,7 @@ extension NetworkError {
     }
 }
 
-extension URLSession {
+public extension URLSession {
     
     func dataTask(with request: URLRequest, errorHandler: @escaping (NetworkError?) -> Void) -> URLSessionDataTask {
         

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum NetworkError: Error {
+public enum NetworkError: Error {
     case transportError(Error)
     case serverError(statusCode: Int)
     case noData
@@ -17,7 +17,7 @@ enum NetworkError: Error {
     case encodingError(Error)
 }
 
-enum HTTPMethod {
+public enum HTTPMethod {
     static let get = "GET"
     static let put = "PUT"
     static let post = "POST"

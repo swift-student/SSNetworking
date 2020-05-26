@@ -6,9 +6,9 @@
 //  Copyright © 2020 Swift Student. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-protocol ResultDecoder {
+public protocol ResultDecoder {
     
     associatedtype ResultType
     
@@ -17,7 +17,7 @@ protocol ResultDecoder {
     func decode(_ result: DataResult) -> Result<ResultType, NetworkError>
 }
 
-extension ResultDecoder {
+public extension ResultDecoder {
     func decode(_ result: DataResult) -> Result<ResultType, NetworkError> {
         result.flatMap { data -> Result<ResultType, NetworkError> in
             Result { try transform(data) }
@@ -26,7 +26,10 @@ extension ResultDecoder {
     }
 }
 
-struct ImageResultDecoder: ResultDecoder {
+#if !os(macOS)
+import UIKit
+
+public struct ImageResultDecoder: ResultDecoder {
     typealias ResultType = UIImage
     
     var transform: (Data) throws -> UIImage = { data in
@@ -37,4 +40,5 @@ struct ImageResultDecoder: ResultDecoder {
         return image
     }
 }
+#endif
 
