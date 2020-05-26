@@ -30,9 +30,9 @@ public extension ResultDecoder {
 import UIKit
 
 public struct ImageResultDecoder: ResultDecoder {
-    typealias ResultType = UIImage
+    public typealias ResultType = UIImage
     
-    var transform: (Data) throws -> UIImage = { data in
+    public var transform: (Data) throws -> UIImage = { data in
         guard let image = UIImage(data: data) else {
             throw NetworkError.badData
         }
