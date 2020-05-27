@@ -49,6 +49,8 @@ public struct ImageResultDecoder: ResultDecoder {
         
         return image
     }
+    
+    public init() {}
 }
 #endif
 
