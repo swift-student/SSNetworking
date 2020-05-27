@@ -6,7 +6,8 @@
 //  Copyright © 2020 Swift Student. All rights reserved.
 //
 
-import Foundation
+
+import UIKit
 
 public protocol ResultDecoder {
     
@@ -36,9 +37,6 @@ public extension ResultDecoder where ResultType: Decodable {
     }
 }
 
-#if !os(macOS)
-import UIKit
-
 public struct ImageResultDecoder: ResultDecoder {
     public typealias ResultType = UIImage
     
@@ -50,5 +48,4 @@ public struct ImageResultDecoder: ResultDecoder {
         return image
     }
 }
-#endif
 
