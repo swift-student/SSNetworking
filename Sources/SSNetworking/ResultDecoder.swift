@@ -7,7 +7,7 @@
 //
 
 
-import UIKit
+import Foundation
 
 public protocol ResultDecoder {
     
@@ -37,6 +37,10 @@ public extension ResultDecoder where ResultType: Decodable {
     }
 }
 
+#if !os(macOS)
+
+import UIKit
+
 public struct ImageResultDecoder: ResultDecoder {
     public typealias ResultType = UIImage
     
@@ -51,3 +55,4 @@ public struct ImageResultDecoder: ResultDecoder {
     public init() {}
 }
 
+#endif
